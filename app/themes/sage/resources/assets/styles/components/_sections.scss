@@ -1,0 +1,170 @@
+.section,
+.section--contained {
+  @apply py-60;
+
+  @media (max-width: 1023px) {
+    padding: 0;
+  }
+}
+
+.section__bg {
+  padding-bottom: 40%;
+  max-height: 600px;
+
+  @media (max-width: 1023px) {
+    padding-bottom: 75%;
+  }
+}
+
+.section--split {
+  @apply flex justify-between items-center;
+
+  flex-flow: row wrap;
+
+  @media (max-width: 1023px) {
+    flex-flow: column wrap;
+  }
+
+  .section__bg {
+    @media (min-width: 1024px) {
+      min-height: 600px;
+    }
+  }
+}
+
+.container {
+  @apply block mx-auto max-w-10xl px-15;
+
+  .section--contained & {
+    align-items: center;
+    flex-flow: row wrap;
+  }
+}
+
+.section__content__inner {
+  @apply p-45 py-30 pr-15 w-full block mx-auto ml-0;
+
+  max-width: 690px;
+
+  .two-thirds & {
+    max-width: 1270px;
+  }
+
+  .three-fourth & {
+    max-width: 1270px;
+  }
+
+  .full & {
+    max-width: 100%;
+  }
+
+  @media (max-width: 1023px) {
+    @apply px-15 py-30;
+
+    max-width: 100%;
+  }
+
+  .flip & {
+    @apply block mx-auto mr-0 p-30 pl-15;
+  }
+}
+
+.section--full {
+  .home & {
+    img {
+      @apply mb-15;
+    }
+
+    h4 {
+      @apply mb-30;
+    }
+  }
+}
+
+// Includes additional padding for Sections with an Acition
+
+.has-action {
+  @apply py-32;
+}
+
+// Flip Order of split or contained content
+
+.section__content {
+  @media (max-width: 1023px) {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+    left: auto !important;
+    right: auto !important;
+  }
+}
+
+.flip {
+  .section__content {
+    order: 1;
+  }
+
+  .section__bg,
+  .slider--images {
+    @apply bg-top;
+
+    order: 2;
+  }
+}
+
+.normal {
+  @media (max-width: 1023px) {
+    .section__content {
+      order: 1;
+    }
+
+    .section__bg {
+      order: 2;
+    }
+  }
+}
+
+// Rows Styling
+.row {
+  @apply mt-30;
+
+  flex-flow: row wrap;
+
+  .column {
+    @media (max-width: 1023px) {
+      @apply w-full;
+    }
+  }
+}
+
+// Social Media
+.social-icon {
+  @media (min-width: 768px) {
+    @apply mr-15;
+  }
+
+  svg {
+    @apply h-icon w-icon;
+
+    fill: #1a3f1c;
+  }
+}
+
+@media (min-width: 768px) {
+  @apply mr-30;
+
+  .edit-post-visual-editor .editor-post-title,
+  .edit-post-visual-editor .editor-block-list__block {
+    max-width: 1100px;
+  }
+}
+
+.slide--image {
+  @apply bg-cover bg-center;
+
+  padding-bottom: 25%;
+}
+
+.border-style-right,
+.border-style-left {
+  //
+}

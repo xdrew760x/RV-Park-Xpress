@@ -1,0 +1,205 @@
+.header-a {
+  margin-top: 0;
+  transition: all ease 1s;
+  z-index: 100;
+
+  // Wesbite Logo Styling
+  .header__branding {
+    img {
+      @apply block mx-auto;
+
+      max-width: 340px;
+      transition: all ease 1s;
+
+      @media (max-width: 1200px) {
+        max-width: 250px;
+      }
+
+      @media (max-width: 1023px) {
+        max-width: 200px;
+      }
+    }
+  }
+
+  .header__bottom {
+    @apply py-15 bg-primary-2;
+  }
+
+  // hamburger Icon
+  .w-hamburger {
+    @apply bg-white relative;
+
+    .nav-is-open & {
+      @apply bg-primary-1;
+    }
+  }
+
+  .nav-toggle {
+    span {
+      @apply bg-white;
+
+      &::before,
+      &::after {
+        @apply bg-white;
+
+        .nav-is-open & {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  // Nav Mobile
+  nav {
+    z-index: 100;
+
+    // 1023 <=
+    @media (max-width: 1023px) {
+      @apply hidden;
+
+      // Navigation Open
+      .nav-is-open & {
+        @apply block mt-120 p-30 absolute w-full bg-primary-1;
+
+        left: 0;
+        top: 0;
+        height: 100vh;
+
+        a {
+          @apply uppercase leading-normal text-white font-raleway-bold;
+
+          span {
+            @apply pl-2 font-raleway-bold;
+          }
+        }
+      }
+    }
+
+    .primary-nav-a {
+      @media (min-width: 1024px) {
+        @apply flex justify-end items-center mt-0;
+      }
+
+      @media (max-width: 1023px) {
+        @apply relative mb-30;
+
+        &::after {
+          @apply bg-white absolute;
+
+          content: "";
+          width: 75px;
+          height: 2px;
+          bottom: -15px;
+        }
+      }
+    }
+
+    li {
+      @media (min-width: 1024px) {
+        @apply ml-15;
+      }
+
+      @media (max-width: 1023px) {
+        @apply mt-2;
+      }
+
+      a {
+        @apply uppercase leading-normal text-primary-3;
+
+        font-size: 18px;
+
+        @media (max-width: 1200px) {
+          font-size: 16px;
+        }
+
+        @media (max-width: 1023px) {
+          @apply text-white;
+
+          font-size: 24px;
+        }
+      }
+    }
+
+    // Last Menu item
+    .menu-item-122 {
+      @apply border-2 border-primary-2 py-2;
+
+      a {
+        @apply p-15 text-primary-2;
+      }
+    }
+
+    // Home Button and other unique menu-items
+    .page-item-2 {
+      @media (min-width: 1024px) {
+        @apply hidden;
+      }
+    }
+
+    // sub-menu Background Color control
+    .sub-menu {
+      @apply bg-white;
+
+      @media (min-width: 1024px) {
+        left: -15px !important;
+      }
+
+      a {
+        @apply capitalize;
+      }
+    }
+
+    [data-state="open"] .sub-menu {
+      @apply p-0 m-0;
+    }
+  }
+
+  // Phone Number & CTA
+  .header__top {
+    .container {
+      @apply flex justify-end items-center;
+
+      flex-flow: row wrap;
+
+      @media (max-width: 1023px) {
+        justify-content: space-between;
+      }
+
+      a {
+        span,
+        svg {
+          @apply ml-2 font-raleway-bold;
+        }
+
+        @media (min-width: 1024px) {
+          @apply ml-30 text-white font-raleway-bold;
+        }
+      }
+
+      h6 {
+        @apply m-0;
+      }
+    }
+  }
+
+  // Fixed Property
+  #header-fixed & {
+    @apply fixed w-full;
+
+    margin-top: 0;
+    top: 0;
+  }
+}
+
+#header-fixed {
+  // Scrool behavior
+  .scroll-head--a {
+    @media (min-width: 1024px) {
+      margin-top: -60px !important;
+
+      .header__branding img {
+        max-width: 200px;
+      }
+    }
+  }
+}

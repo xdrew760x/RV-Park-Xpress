@@ -1,0 +1,27 @@
+.button {
+  @apply inline-block py-1 px-30 uppercase text-p text-white;
+
+  letter-spacing: 1px;
+}
+
+.button--primary {
+  @apply text-primary-2 border-2 border-primary-2 bg-white;
+
+  // Hover
+  @media (hover: hover) {
+    &:hover {
+      @apply text-white bg-primary-2;
+    }
+  }
+}
+
+.button--secondary,
+.gform_button {
+  @apply border-2 border-primary-2 relative bg-primary-2;
+  // Hover
+  @media (hover: hover) {
+    &:hover {
+      @apply text-white bg-primary-1 border-primary-1;
+    }
+  }
+}
