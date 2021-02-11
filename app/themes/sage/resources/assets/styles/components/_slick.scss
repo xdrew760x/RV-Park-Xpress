@@ -1,32 +1,33 @@
 // Dots
 .slick-dots {
-  @apply px-buffer list-none text-center;
+  @apply px-buffer list-none  block mx-auto mt-15;
 
   li {
     @apply inline-block pl-0 text-base leading-none;
+  }
+
+  > li {
+    display: inline-block;
   }
 
   li + li {
     @apply mt-0 ml-2;
   }
 
+  > li:only-child {
+    display: none;
+  }
+
   button {
-    @apply w-dot h-dot bg-primary-1 rounded-full border-2 border-solid border-primary-3 appearance-none;
+    @apply w-dot bg-transparent rounded-full border-2 border-solid border-white bg-white appearance-none;
 
     text-indent: -9999px;
-
-    .brm-testimonials & {
-      @apply bg-primary-3;
-    }
+    height: 20px;
   }
 
   .slick-active {
     button {
-      @apply bg-primary-2 border-primary-3;
-
-      .brm-testimonials & {
-        @apply bg-primary-2;
-      }
+      @apply bg-transparent border-white;
     }
   }
 }
@@ -38,7 +39,7 @@
   top: 45%;
 
   svg {
-    @apply text-primary-4;
+    @apply text-primary-1;
 
     font-size: 45px;
   }

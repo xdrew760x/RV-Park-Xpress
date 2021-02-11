@@ -32,9 +32,14 @@
   input,
   textarea,
   select {
-    @apply bg-white border-1 border-primary-3 h-45;
+    @apply bg-white border-1 h-45 text-primary-1 border-primary-3;
 
     width: 100% !important;
+    height: 45px;
+
+    &::placeholder {
+      @apply text-primary-1;
+    }
   }
 
   select {
@@ -44,17 +49,11 @@
 
 // Label
 .gfield_label {
-  @apply block mb-0;
-
-  font-size: 20px !important;
-
-  .hidden_label & {
-    @apply hidden;
-  }
+  @apply mb-0;
 }
 
 label {
-  @apply font-raleway-bold capitalize;
+  @apply capitalize;
 }
 
 // Right & Left Half
@@ -89,24 +88,6 @@ label {
   @apply relative;
 
   cursor: pointer;
-
-  &::after {
-    @apply block absolute bg-contain bg-center;
-
-    pointer-events: none;
-    content: "";
-    top: 8px;
-    right: 15px;
-    width: 30px;
-    height: 30px;
-    background-image: url(/app/themes/sage/resources/assets/images/calendar-icon-blue.png);
-  }
-}
-
-.ui-datepicker-next,
-.ui-datepicker-prev {
-  line-height: 0 !important;
-  background-image: none !important;
 }
 
 // Body
@@ -120,7 +101,7 @@ label {
 }
 
 .ui-datepicker {
-  width: 250px !important;
+  min-width: 275px !important;
 
   .ui-datepicker-title {
     @apply m-0;
@@ -153,11 +134,11 @@ label {
 
   clear: both;
   margin: 0 !important;
-  display: table !important;
+  display: inline-block !important;
   width: auto !important;
 
   .button {
-    @apply text-white border-2 bg-primary-2 border-primary-2;
+    @apply text-white bg-primary-3 py-3;
 
     &:hover {
       @apply bg-primary-2;
@@ -167,7 +148,7 @@ label {
 
 // Button
 .gform_button {
-  @apply button w-auto bg-primary-1;
+  @apply w-auto bg-primary-1;
 
   // Hover State
   @media (hover: hover) {

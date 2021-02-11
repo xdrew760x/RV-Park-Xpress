@@ -1,7 +1,7 @@
 {{--
   Title: Column-Slider
   Description: Add Columns that becomes a slick slider on mobile.
-  Category: columns_blocks
+  Category: general_blocks
   Icon: admin-links
   Keywords: BigRigMedia
   Mode: preview

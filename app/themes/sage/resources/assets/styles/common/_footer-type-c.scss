@@ -1,9 +1,115 @@
 .footer-c {
+  @apply relative z-40 bg-primary-1;
+
   .copyright {
-    @apply text-primary-2;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 30px;
+
+    a,
+    span {
+      @apply font-raleway-regular;
+
+      color: white;
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+  }
+
+  .footer--location {
+    @media (max-width: 1023px) {
+      @apply flex;
+
+      flex-flow: column wrap;
+
+      span {
+        @apply hidden;
+      }
+
+      a {
+        @apply my-4 flex justify-center items-center;
+
+        flex-flow: column wrap;
+        font-size: 20px;
+        letter-spacing: 0;
+      }
+    }
 
     a {
-      @apply text-primary-2;
+      font-size: 18px;
+    }
+  }
+
+  .footer__social {
+    @media (max-width: 1023px) {
+      order: 2;
+    }
+  }
+
+  .social__media {
+    @apply py-30;
+
+    a {
+      @apply mx-15 p-2 bg-white;
+
+      height: 60px;
+      width: 60px;
+      border-radius: 100%;
+      border: 6px solid #9ebc97;
+
+      svg,
+      i {
+        fill: #49823b;
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  .footer__newsletter {
+    @media (max-width: 1023px) {
+      order: 1;
+    }
+
+    label {
+      display: none !important;
+    }
+
+    form {
+      @apply flex justify-start items-center relative;
+
+      .gform_body {
+        @apply w-full;
+
+        input {
+          padding: 15px !important;
+          height: 60px !important;
+          box-sizing: border-box;
+          border: 5px;
+          border-color: rgba(#49823b, 0.5);
+          border-style: solid;
+        }
+      }
+
+      .gform_footer {
+        @apply absolute;
+
+        right: 30px;
+        top: 28px;
+        z-index: 10;
+        height: 35px;
+        width: 30px !important;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain !important;
+        background-image: url(/app/themes/sage/resources/assets/images/submit-button.svg);
+
+        .button {
+          height: 60px !important;
+          opacity: 0;
+          border-radius: 0 !important;
+        }
+      }
     }
   }
 
@@ -22,7 +128,9 @@
       @apply px-15;
 
       a {
-        @apply text-primary-2;
+        @apply uppercase text-white font-raleway-bold;
+
+        font-size: 18px;
       }
 
       .sub-menu {
@@ -35,9 +143,9 @@
     }
   }
 
-  .footer_branding {
-    img {
-      @apply block mx-auto mt-45;
-    }
+  hr {
+    @apply my-15;
+
+    background-color: #49823b;
   }
 }

@@ -1,5 +1,5 @@
 .testimonial--type-b {
-  @apply flex justify-between items-start;
+  @apply flex justify-between items-start relative z-40;
 
   flex-flow: row wrap;
 

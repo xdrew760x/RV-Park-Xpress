@@ -17,9 +17,12 @@ add_action('wp_enqueue_scripts', function () {
   if (is_single() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');
   }
-
+  wp_enqueue_script('sage/slick.min.js', get_stylesheet_directory_uri() . '/assets/scripts/slick.min.js', ['jquery'], null, true);
   //wp_enqueue_style('sage/shame.css', get_stylesheet_directory_uri() . '/assets/shame/shame.css', false, null);
   //wp_enqueue_script('sage/shame.js', get_stylesheet_directory_uri() . '/assets/shame/shame.js', ['jquery'], null, true);
+  wp_enqueue_script('sage/filter.js', get_stylesheet_directory_uri() . '/assets/scripts/filter.js', ['jquery'], null, true);
+
+
 }, 100);
 
 /**
@@ -103,7 +106,13 @@ add_action('after_setup_theme', function () {
     'primary_type_b_right' => __('Right Navigation Type B', 'sage')
   ]);
 
+  register_nav_menus([
+    'about_navigation' => __('About us Footer', 'sage')
+  ]);
 
+  register_nav_menus([
+    'location_navigation' => __('Location Footer', 'sage')
+  ]);
 
   /**
   * Enable post thumbnails

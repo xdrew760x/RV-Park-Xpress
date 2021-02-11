@@ -1,4 +1,6 @@
 .contact-b {
+  @apply relative z-40;
+
   strong {
     @apply uppercase;
   }

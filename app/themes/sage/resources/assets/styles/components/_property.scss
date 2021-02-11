@@ -13,14 +13,6 @@
     @apply relative z-40 text-white;
   }
 
-  strong {
-    font-size: 32px;
-  }
-
-  a strong {
-    font-size: 22px;
-  }
-
   // 1023 <=
   @media (max-width: 1023px) {
     @apply mt-1;
@@ -31,12 +23,20 @@
     width: calc(33.3333333333% - 15px);
   }
 
-  .gform_wrapper {
-    margin-top: 30px;
-  }
-
   form {
     @apply p-0;
+
+    input {
+      margin: 15px 0 !important;
+    }
+
+    .gfield {
+      padding: 0 !important;
+    }
+
+    textarea {
+      @apply mt-15;
+    }
   }
 
   .property__contact--agents {
@@ -48,11 +48,36 @@
       &:nth-last-child(1) {
         @apply mb-0;
       }
+
+      .tele__agent,
+      .email__agent {
+        @apply pl-30 relative;
+
+        &::before {
+          @apply bg-contain bg-no-repeat absolute w-15 h-15;
+
+          content: "";
+          left: 0;
+          top: 10px;
+        }
+      }
+
+      .tele__agent {
+        &::before {
+          background-image: url(/app/themes/sage/resources/assets/images/phone-white.svg);
+        }
+      }
+
+      .email__agent {
+        &::before {
+          background-image: url(/app/themes/sage/resources/assets/images/envelope-white.svg);
+        }
+      }
     }
   }
 
   .property__contact--form {
-    @apply bg-primary-1 mt-30 p-15;
+    @apply bg-primary-1 mt-30 px-30;
   }
 }
 
@@ -71,7 +96,7 @@
   @apply p-30 bg-primary-3;
 
   .single & {
-    @apply bg-white p-0;
+    @apply bg-white p-0 pt-90;
   }
 
   .properties & {
@@ -193,8 +218,6 @@
 
   h6 {
     @apply m-0;
-
-    font-size: 26px;
   }
 
   .btn {
@@ -211,10 +234,6 @@
 
   span {
     @apply text-primary-1;
-
-    @media (max-width: 768px) {
-      font-size: 20px;
-    }
   }
 
   span:nth-child(2) {
@@ -337,6 +356,10 @@
 .property__gallery__nav {
   @apply mt-1;
 
+  img {
+    @apply px-1;
+  }
+
   // 767 <=
   @media (max-width: 767px) {
     display: none !important;
@@ -346,12 +369,14 @@
 // Gallery Item
 .property__gallery__item {
   outline: none;
+  min-height: 250px;
+}
 
-  img {
-    display: block;
-    margin: auto;
-    padding-left: 7.5px;
-    padding-right: 7.5px;
+.large--slide {
+  min-height: 600px;
+
+  @media (max-width: 767px) {
+    min-height: 400px;
   }
 }
 
@@ -387,15 +412,6 @@
 }
 
 .next-post {
-  @apply pr-30;
-
-  &::after {
-    right: 0;
-    background-image: url(/app/themes/sage/resources/assets/images/arrow-right.svg);
-  }
-}
-
-.prev-post {
   @apply pl-30;
 
   &::after {
@@ -404,17 +420,41 @@
   }
 }
 
+.prev-post {
+  @apply pr-30;
+
+  &::after {
+    left: auto;
+    right: 0;
+    background-image: url(/app/themes/sage/resources/assets/images/arrow-right.svg);
+  }
+}
+
 .form--simple {
-  @apply flex justify-end items-center mb-45;
+  @apply flex justify-end items-center mb-45 relative;
+
+  &::before {
+    content: "\2193";
+    position: absolute;
+    top: 4px;
+    right: 145px;
+    z-index: 100;
+  }
 
   select {
+    @apply bg-white border-1 border-primary-4;
+
     max-width: 200px;
   }
 
   .button {
-    @apply ml-15;
+    @apply ml-15 bg-white;
 
-    max-width: 125px;
+    &:hover {
+      @apply text-white bg-primary-2;
+
+      cursor: pointer;
+    }
   }
 }
 

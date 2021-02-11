@@ -1,9 +1,19 @@
 .testimonial--type-a {
+  @apply relative z-40;
+
   .slick-arrow {
     top: 10%;
 
     svg {
-      color: white;
+      @apply text-primary-1;
+    }
+  }
+
+  .testi--container {
+    @apply p-30 text-white;
+
+    p {
+      @apply text-white;
     }
   }
 }

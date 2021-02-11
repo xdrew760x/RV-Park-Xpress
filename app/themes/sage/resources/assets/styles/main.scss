@@ -41,14 +41,14 @@
 // Header
 @import "common/header-type-a";
 @import "common/header-type-b";
-@import "common/header-type-c";
-@import "common/header-type-d";
 //Hero
 @import "components/hero";
 @import "common/hero-type-a";
 @import "common/hero-type-b";
 @import "common/hero-type-c";
 @import "common/hero-type-d";
+@import "common/hero-type-community";
+
 //Contact
 @import "common/contact-type-a";
 @import "common/contact-type-b";
@@ -63,29 +63,31 @@
 // Common Sections
 @import "components/sections";
 @import "components/testimonials";
-@import "components/cta";
-@import "components/landing";
 @import "components/property";
-@import "components/partnership";
+@import "components/cta";
+
 // testimonials
 @import "common/testimonial-type-a";
 @import "common/testimonial-type-b";
 
 // Slick Slider
 @import "components/slick";
+@import "components/filters";
 // Jquery
 @import "components/jquery";
 //Blocks
 @import "blocks/column-slider";
 @import "blocks/column-builder";
-@import "blocks/card-builder";
-@import "blocks/listing-featured";
-@import "blocks/listing-carousel";
 @import "blocks/portals";
-@import "blocks/our-team";
-@import "blocks/our-team-b";
 @import "blocks/testimonials";
-@import "blocks/property-listings";
+@import "blocks/float-center";
+@import "blocks/newsletter";
+@import "blocks/margin-col";
+@import "blocks/news-blog";
+@import "blocks/amenities";
+@import "blocks/properties";
+@import "blocks/attractions";
+@import "blocks/rates";
 
 // Common Wordpress
 @import "wordpress/default";

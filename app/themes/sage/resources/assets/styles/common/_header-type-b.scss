@@ -2,67 +2,106 @@
 ///
 //
 .header-b {
-  @apply py-15 relative;
+  @apply relative;
 
   transition: all ease 1s;
   z-index: 500;
+
+  .logged-in & {
+    //top: 30px !important;
+
+    @media (max-width: 768px) {
+      //top: 45px !important;
+    }
+  }
 
   // Header Bottom
   .header__bottom {
     @apply pt-15;
 
     @media (max-width: 1023px) {
-      @apply flex justify-between items-center pt-0;
+      @apply py-15;
 
       .mobile--tele {
-        @apply flex items-center mt-0;
-
-        filter: brightness(1000%);
+        @apply hidden items-center mt-0;
 
         .nav-is-open & {
-          @apply ml-0 mt-15 w-full;
+          @apply ml-0 mt-15 w-full flex;
 
           span {
-            @apply block;
-
             font-size: 24px;
           }
         }
       }
 
-      .button {
+      .font-raleway-regular {
         .nav-is-open & {
-          @apply block m-0 mt-15;
+          @apply m-0 mt-2;
+
+          display: inline-block;
         }
       }
     }
 
     // HEader Nav Open
     .nav-is-open & {
-      @apply fixed items-start p-15 w-full bg-primary-2;
+      @apply fixed items-start p-15 pt-45 bg-primary-4;
 
       height: 100vh;
       z-index: 50;
       top: 0;
       left: 0;
+      width: 80%;
+      background: #fff;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.17);
+    }
+  }
+
+  .header__top {
+    @apply bg-primary-1;
+
+    @media (max-width: 1023px) {
+      @apply py-2 bg-white;
+    }
+
+    svg {
+      @apply text-white;
+
+      font-size: 24px;
+    }
+
+    i {
+      fill: white;
+      font-size: 24px;
+    }
+
+    a,
+    span {
+      font-size: 16px;
     }
   }
 
   // Branding Logo
   .header__branding {
-    width: 20%;
+    @apply absolute block mx-auto;
+
     transition: all ease 1s;
+    max-width: 275px;
+    left: 0;
+    right: 0;
+    top: 90px;
+
+    @media (max-width: 1023px) {
+      max-width: 145px;
+      top: 5px;
+    }
 
     img {
       @apply mx-auto block;
-
-      max-width: 200px;
     }
 
     @media (max-width: 1023px) {
       @apply w-auto my-0;
-
-      max-width: 100px;
     }
 
     .nav-is-open & {
@@ -77,12 +116,12 @@
     flex-flow: row wrap;
 
     @media (max-width: 1023px) {
-      @apply items-start;
+      @apply items-center;
     }
 
     // Inner Nav Controller
     .nav {
-      width: 40%;
+      @apply w-1/2;
 
       @media (max-width: 1023px) {
         @apply w-full flex justify-between items-end;
@@ -93,35 +132,6 @@
           @apply justify-start items-start;
 
           flex-flow: column wrap;
-        }
-      }
-    }
-
-    .nav--right,
-    .nav--left {
-      @apply flex items-center;
-
-      flex-flow: row wrap;
-
-      @media (max-width: 1023px) {
-        @apply hidden;
-
-        .nav-is-open & {
-          @apply flex;
-        }
-      }
-
-      a {
-        @apply uppercase;
-
-        font-size: 16px;
-
-        @media (max-width: 1200px) {
-          font-size: 14px;
-        }
-
-        @media (max-width: 1023px) {
-          font-size: 24px;
         }
       }
     }
@@ -153,7 +163,7 @@
         }
 
         @media (min-width: 1024px) {
-          @apply ml-15;
+          @apply ml-30;
         }
       }
     }
@@ -169,7 +179,67 @@
         }
 
         @media (min-width: 1024px) {
-          @apply mr-15;
+          @apply mr-30;
+        }
+      }
+    }
+
+    .nav--right,
+    .nav--left {
+      @apply flex pb-15;
+
+      flex-flow: row wrap;
+
+      @media (max-width: 1023px) {
+        @apply hidden pb-0;
+
+        .nav-is-open & {
+          @apply flex;
+        }
+      }
+
+      .menu-item {
+        @apply py-105;
+
+        @media (max-width: 1023px) {
+          @apply py-0 pt-3;
+        }
+
+        .sub-menu {
+          top: 96%;
+
+          @media (min-width: 1024px) {
+            @apply border-t-2 border-primary-4;
+          }
+
+          .menu-item {
+            @apply py-15;
+
+            @media (max-width: 1023px) {
+              @apply py-1;
+            }
+          }
+        }
+      }
+
+      a {
+        @apply uppercase font-raleway-bold text-primary-3;
+
+        font-size: 18px;
+        color: #333;
+        letter-spacing: 2px;
+        line-height: 1.2;
+
+        @media (max-width: 1200px) {
+          font-size: 14px;
+        }
+
+        @media (max-width: 1023px) {
+          font-size: 20px;
+        }
+
+        &:hover {
+          @apply text-primary-3;
         }
       }
     }
@@ -182,29 +252,69 @@
     .nav-is-open & {
       @apply block w-full;
     }
+
+    svg,
+    i {
+      @apply text-primary-1;
+    }
+
+    .button {
+      border-left: 3px solid white;
+      border-right: 3px solid white;
+      border-top: 0;
+      border-bottom: 0;
+
+      .nav-is-open & {
+        @apply mt-3;
+
+        display: inline-block;
+      }
+    }
   }
 
   // hamburger Icon
   .w-hamburger {
-    @apply bg-primary-1 mt-15;
+    @apply bg-primary-1 relative;
+
+    left: 5px;
+    top: 35px;
+    z-index: 100;
 
     .nav-is-open & {
-      @apply bg-primary-2 mb-30;
+      @apply bg-transparent mb-0 fixed;
+
+      top: 45px;
+      left: 20px;
     }
   }
 
   .nav-toggle {
     span {
-      @apply bg-white;
+      @apply bg-primary-1;
 
       &::before,
       &::after {
-        @apply bg-white;
+        @apply bg-primary-1;
 
         .nav-is-open & {
           opacity: 1;
+
+          @apply bg-primary-1;
         }
       }
+    }
+  }
+
+  .mobile--contact {
+    .nav-is-open & {
+      @apply hidden;
+    }
+  }
+
+  .menu-item-604,
+  .menu-item-639 {
+    @media (min-width: 1024px) {
+      @apply hidden;
     }
   }
 

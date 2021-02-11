@@ -5,7 +5,7 @@
   // Fade in
   .fade {
     opacity: 0;
-    transition: all ease 1s;
+    transition: all ease-out 1s;
   }
 
   //Animate Relative State for all classes
@@ -13,7 +13,7 @@
   .animate-left,
   .animate-bottom,
   .animate-top {
-    transition: all ease 1s;
+    transition: all ease-out 1s;
     position: relative;
   }
 
@@ -379,137 +379,5 @@
   100% {
     bottom: 0;
     opacity: 1;
-  }
-}
-
-// Border Animations
-
-.border-style-left {
-  &::after {
-    @apply bg-primary-4;
-
-    transition: all ease 2s;
-    content: "";
-    position: absolute;
-    width: 2px;
-    height: 0;
-    bottom: -30px;
-    right: -30px;
-
-    @media (max-width: 1023px) {
-      right: -30px;
-      height: 100%;
-    }
-
-    .section--full & {
-      right: -30px;
-    }
-  }
-
-  &::before {
-    @apply bg-primary-4;
-
-    transition: all ease 2s;
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -30px;
-    right: -30px;
-
-    @media (max-width: 1023px) {
-      width: 100%;
-    }
-
-    .section--full & {
-      right: -30px;
-    }
-  }
-
-  @media (max-width: 1023px) {
-    padding-right: 45px !important;
-
-    &::after {
-      right: 15px;
-    }
-
-    &::before {
-      right: 15px;
-    }
-  }
-}
-
-.border-style-right {
-  &::after {
-    @apply bg-primary-4;
-
-    transition: all ease 2s;
-    content: "";
-    position: absolute;
-    width: 2px;
-    height: 0;
-    bottom: -30px;
-    left: -30px;
-
-    @media (max-width: 1023px) {
-      height: 100%;
-    }
-  }
-
-  &::before {
-    @apply bg-primary-4;
-
-    transition: all ease 2s;
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -30px;
-    left: -30px;
-
-    @media (max-width: 1023px) {
-      width: 100%;
-    }
-  }
-
-  @media (max-width: 1023px) {
-    padding-left: 45px !important;
-
-    &::after {
-      left: 15px;
-    }
-
-    &::before {
-      left: 15px;
-    }
-  }
-}
-
-//Border styling
-.border-style-left,
-.border-style-right {
-  @apply relative;
-
-  h3 {
-    @apply mb-45 relative;
-
-    &::before {
-      @apply bg-primary-4;
-
-      content: "";
-      position: absolute;
-      bottom: -15px;
-      left: 0;
-      width: 100px;
-      height: 2px;
-    }
-
-    .section--full & {
-      @apply mb-15;
-
-      &::before {
-        @apply hidden;
-      }
-    }
   }
 }

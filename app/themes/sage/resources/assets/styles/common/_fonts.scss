@@ -35,29 +35,16 @@
 }
 
 @font-face {
-  font-family: "raleway-black";
-  src: url("../fonts/raleway-black.woff") format("woff");
-  font-style: normal;
-  font-weight: 900;
-}
-
-@font-face {
   font-family: "raleway-bold";
   src: url("../fonts/raleway-bold.woff") format("woff");
-  font-style: normal;
-  font-weight: 900;
-}
-
-@font-face {
-  font-family: "raleway-italic";
-  src: url("../fonts/raleway-italic.woff") format("woff");
-  font-style: normal;
-  font-weight: 900;
 }
 
 @font-face {
   font-family: "raleway-regular";
   src: url("../fonts/raleway-regular.woff") format("woff");
-  font-style: normal;
-  font-weight: 900;
+}
+
+@font-face {
+  font-family: "raleway-semibold";
+  src: url("../fonts/raleway-semibold.woff") format("woff");
 }

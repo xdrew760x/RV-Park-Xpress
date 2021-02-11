@@ -1,4 +1,5 @@
 .card-content {
+  @apply relative z-40;
   // Inner
   .content--inner {
     @apply px-15 py-45;

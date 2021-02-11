@@ -18,15 +18,6 @@ $background_state = !empty(get_field('contact_background_image', 'options')) ? '
         @case('contact-a')
           @include('partials.contacts.contacts-a')
         @break
-        @case('contact-b')
-          @include('partials.contacts.contacts-b')
-        @break
-        @case('contact-c')
-          @include('partials.contacts.contacts-c')
-        @break
-        @default
-          <!-- Display nothing -->
-        @break
       @endswitch
   </section>
 @endif

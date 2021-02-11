@@ -217,7 +217,7 @@ class Edit extends Component {
 
 		const setFormIdFromPlaceholder = e => this.setFormId(e.target.value);
 
-		const controls = [isSelected && gform_block_form.forms && gform_block_form.forms.length > 0 && React.createElement(
+		const controls = [isSelected && React.createElement(
 			InspectorControls,
 			{ key: 'inspector' },
 			React.createElement(
@@ -316,7 +316,7 @@ class Edit extends Component {
 						)
 					)
 				),
-				gform_block_form.forms && gform_block_form.forms.length > 0 && React.createElement(
+				React.createElement(
 					'form',
 					null,
 					React.createElement(
@@ -327,15 +327,6 @@ class Edit extends Component {
 							{ key: form.value, value: form.value },
 							form.label
 						))
-					)
-				),
-				(!gform_block_form.forms || gform_block_form.forms && gform_block_form.forms.length === 0) && React.createElement(
-					'form',
-					null,
-					React.createElement(
-						'p',
-						null,
-						__('You must have at least one form to use the block.', 'gravityforms')
 					)
 				)
 			)];

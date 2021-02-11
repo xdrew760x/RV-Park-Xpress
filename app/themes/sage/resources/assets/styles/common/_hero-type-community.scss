@@ -1,0 +1,18 @@
+.community--hero {
+  @media (max-width: 1023px) {
+    @apply py-45;
+
+    min-height: 600px !important;
+    height: auto;
+  }
+
+  .hero-meta {
+    p {
+      @apply text-p mb-0;
+    }
+
+    a {
+      @apply text-primary-2;
+    }
+  }
+}

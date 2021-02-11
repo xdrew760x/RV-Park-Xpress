@@ -67,6 +67,14 @@ array_map(function ($file) use ($sage_error) {
   }
 }, ['helpers', 'setup', 'filters', 'admin', 'plugins', 'media', 'acf', 'gf', 'shortcodes', 'post-types']);
 
+
+
+function my_acf_init() {
+    acf_update_setting('google_api_key', 'AIzaSyDxClnde54Xwdumsd0q6p1fK-R_kKYAzCY');
+}
+add_action('acf/init', 'my_acf_init');
+
+
 /**
 * Here's what's happening with these hooks:
 * 1. WordPress initially detects theme in themes/sage/resources
@@ -103,143 +111,6 @@ function mytheme_setup() {
 }
 add_action( 'after_setup_theme', 'mytheme_setup' );
 
-
-/// Registers Block Category for Gutenberg
-
-function my_blocks_plugin_block_categories( $categories ) {
-  return array_merge(
-    $categories,
-    array(
-      array(
-        'slug' => 'general_blocks',
-        'title' => __( 'General Blocks', 'brm' ),
-        'icon'  => 'wordpress',
-      ),
-      array(
-        'slug' => 'columns_blocks',
-        'title' => __( 'Column Blocks', 'brm' ),
-        'icon'  => 'wordpress',
-      ),
-      array(
-        'slug' => 'rv_blocks',
-        'title' => __( 'RV Park Blocks', 'brm' ),
-        'icon'  => 'wordpress',
-      ),
-    )
-  );
-}
-
-add_filter( 'block_categories', 'my_blocks_plugin_block_categories', 10, 2 );
-
-//// Gutenberg Backend Styling Overide
-add_action('admin_head', 'gutenberg_styling_overide');
-
-function gutenberg_styling_overide() {
-  echo '<style>
-  @media (min-width: 782px) {
-    .is-sidebar-opened .block-editor-editor-skeleton__sidebar {
-      width: 20%;
-      min-width: 20% !important;
-      transition: all ease .2s;
-      position: fixed !important;
-      right: 0px !important;
-      left: auto !important;
-      margin-top: 88px;
-      z-index: 50;
-    }
-
-    .expand-me {
-      width: 40% !important;
-      z-index: 100 !important;
-    }
-  }
-
-  .edit-post-sidebar {
-    width: 100%;
-  }
-
-  .components-notice-list,
-  .edit-post-layout__metaboxes {
-    max-width: 75% !important;
-  }
-
-  .components-notice-list,
-  .edit-post-layout__metaboxes {
-    max-width: 80%;
-  }
-
-  .block-editor-block-list__layout {
-    overflow: hidden !important;
-    position: relative;
-  }
-
-  .block-editor-block-list__layout .block-editor-block-list__layout {
-    width: 100% !important;
-  }
-
-  .wp-core-ui .button,
-  .wp-core-ui .button-secondary {
-    background: transparent !important;
-    background-color: inherit !important;
-    color: black;
-  }
-
-  .editor-styles-wrapper .button {
-    color: inherit !important;
-  }
-
-  .wp-editor-area {
-    height: 150px !important;
-  }
-
-  .block-list-appender {
-    z-index: 10;
-    position: relative;
-  }
-
-  .editor-styles-wrapper .block-editor-block-list__block {
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
-
-  .open-sidebar {
-    display: none !important;
-  }
-
-  .block-editor-page .open-sidebar {
-    display: block !important;
-  }
-
-  .open-sidebar {
-    right: -155px;
-    transition: all ease  .2s;
-  }
-
-  .open-sidebar::before {
-    content: "\2190";
-    padding-right: 15px;
-  }
-
-  .open-sidebar:hover {
-    right: 0px;
-  }
-
-
-  </style>
-
-  <a class="open-sidebar text-h1 button--primary"
-  style="
-  position: absolute;
-  z-index: 1000;
-  bottom: 0;
-  font-size: 20px;
-  padding: 15px;
-  border: 1px solid black;
-  background-color: white;
-  cursor: pointer;
-  "
-  >Toggle Toolbar</a>';
-}
 // Add class to next and previous links
 function add_class_next_post_link($html){
   $html = str_replace('<a','<a class="next-post"',$html);
@@ -253,32 +124,13 @@ function add_class_previous_post_link($html){
 }
 add_filter('previous_post_link','add_class_previous_post_link',10,1);
 
-
-//Remove stock blocks
-
-add_filter( 'allowed_block_types', 'misha_allowed_block_types' );
-
-function misha_allowed_block_types( $allowed_blocks ) {
-
-  return array(
-    'acf/all-listings',
-    'acf/carousel-gallery',
-    'acf/amenities',
-    'acf/columns-slider',
-    'acf/featured-carousel',
-    'acf/featured-listings',
-    'acf/full',
-    'acf/hero',
-    'acf/our-team',
-    'acf/portals',
-    'acf/split',
-    'acf/testimonials-resident',
-    'acf/testimonials',
-    'acf/reservations',
-    'acf/solutions',
-    'acf/column-builder',
-    'acf/google-maps',
-    'core/block' // add this for reusable block
-  );
-
+// conditional to check whether Gravity Forms shortcode is on a page
+function has_gform() {
+     global $post;
+     $all_content = get_the_content();
+     if (strpos($all_content,'[gravityform') !== false) {
+	return true;
+     } else {
+	return false;
+     }
 }

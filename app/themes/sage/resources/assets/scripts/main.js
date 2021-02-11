@@ -26,8 +26,8 @@ const routes = new Router({
 // Load Events
 jQuery(document).ready(() => routes.loadEvents());
 
-
 var viewportWidth = $(window).width();
+
 
 // logo on scroll
 var header_a = $('.header-a');
@@ -46,31 +46,16 @@ if (viewportWidth >= 50) {
 
 
 // logo on scroll
-var header_b = $('.header-b');
+var booking = $('.button--sticky');
 
-if (viewportWidth >= 50) {
+if (viewportWidth >= 100) {
   $(window).scroll(function() {
     var scrollX = $(this).scrollTop();
 
-    if (scrollX >= 10) {
-      $(header_b).addClass('scroll-head--b');
+    if (scrollX >= 100) {
+      $(booking).addClass('booking--reveal');
     } else {
-      $(header_b).removeClass('scroll-head--b');
-    }
-  });
-}
-
-// logo on scroll
-var header_d = $('.header-d');
-
-if (viewportWidth >= 50) {
-  $(window).scroll(function() {
-    var scrollX = $(this).scrollTop() - 100;
-
-    if (scrollX >= 10) {
-      $(header_d).addClass('scroll-head--d');
-    } else {
-      $(header_d).removeClass('scroll-head--d');
+      $(booking).removeClass('booking--reveal');
     }
   });
 }
@@ -83,7 +68,7 @@ function isScrolledIntoView(elem) {
   var elemTop = $(elem).offset().top;
   var elemBottom = elemTop + $(elem).height();
 
-  return ((elemBottom - 300 <= docViewBottom) && (elemTop >= docViewTop));
+  return ((elemBottom - 150 <= docViewBottom) && (elemTop >= docViewTop));
 }
 
 // Class holder animations set
@@ -119,8 +104,6 @@ $(window).scroll(function () {
     }
   });
 });
-
-
 
 $(window).scroll(function () {
 

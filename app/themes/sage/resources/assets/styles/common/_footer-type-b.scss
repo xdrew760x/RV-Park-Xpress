@@ -1,4 +1,6 @@
 .footer-b {
+  @apply relative z-40;
+
   .column {
     @media (max-width: 1023px) {
       @apply mt-30;
@@ -16,9 +18,9 @@
   p,
   a,
   span {
-    @apply font-raleway-bold text-primary-3;
+    @apply text-primary-1;
 
-    font-size: 18px;
+    font-size: 16px;
 
     @media (max-width: 1200px) {
       font-size: 16px;
@@ -42,16 +44,12 @@
   .copyright,
   .copyright span,
   .copyright a {
-    @apply font-raleway-regular m-0 text-center;
+    @apply m-0 text-left;
 
     font-size: 12px;
   }
 
   .copyright {
     @apply w-full;
-
-    @media (max-width: 1023px) {
-      @apply mt-15 w-3/4;
-    }
   }
 }

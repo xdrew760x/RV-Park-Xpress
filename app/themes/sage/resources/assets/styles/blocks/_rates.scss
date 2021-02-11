@@ -1,0 +1,43 @@
+.section--rates {
+  .rates--list {
+    @apply flex;
+
+    flex-flow: row wrap;
+
+    .rates {
+      @apply w-1/3 px-2 pb-2 text-center;
+
+      @media (max-width: 1200px) {
+        @apply w-1/2;
+      }
+
+      @media (max-width: 768px) {
+        @apply w-full;
+      }
+
+      .rates--inner {
+        @apply relative flex justify-center items-center bg-cover bg-center;
+
+        min-height: 500px;
+        box-sizing: border-box;
+        border: 20px;
+        border-color: rgba(255, 255, 255, 0.8);
+        border-style: solid;
+
+        @media (max-width: 768px) {
+          min-height: 350px;
+        }
+
+        .hover--content {
+          @apply absolute flex justify-center items-center;
+
+          flex-flow: column wrap;
+          height: 90%;
+          width: 90%;
+          transform: scale(1);
+          transition: all ease 0.5s;
+        }
+      }
+    }
+  }
+}

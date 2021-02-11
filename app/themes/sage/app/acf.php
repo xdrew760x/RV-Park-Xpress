@@ -20,6 +20,7 @@ if ( class_exists('ACF') ) {
         'menu_title'  => __('Page Components'),
         'parent_slug' => 'theme-options'
       ]);
+
     }
   }
 }

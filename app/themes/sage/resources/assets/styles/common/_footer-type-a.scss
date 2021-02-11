@@ -3,6 +3,8 @@
 //
 
 .footer-a {
+  @apply relative z-40;
+
   /// Footer Logo
   .footer_branding {
     max-width: 300px;

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="16px" viewBox="0 0 24 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Shape</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Footer-Area" transform="translate(-241.000000, -273.000000)" fill="#809D4B">
+            <g id="Contact-Area" transform="translate(241.000000, 70.000000)">
+                <g id="Icon-/-Mail-/-Fill" transform="translate(0.000000, 203.000000)">
+                    <path d="M23.888,1.832 C23.82,1.803 23.74,1.818 23.688,1.871 L13.941,11.616 C12.867,12.689 11.127,12.689 10.053,11.616 L0.31,1.871 C0.258,1.818 0.178,1.802 0.11,1.832 C0.043,1.861 0,1.927 0,2 L0,14 C0,15.105 0.895,16 2,16 L22,16 C23.105,16 24,15.105 24,14 L24,2 C24,1.926 23.956,1.86 23.888,1.832 Z M11.115,10.556 C11.604,11.043 12.394,11.043 12.883,10.556 L22.569,0.87 C22.703,0.736 22.75,0.539 22.69,0.359 C22.58,0.03 22.274,0 22,0 L2,0 C1.725,0 1.417,0.03 1.309,0.359 C1.249,0.539 1.296,0.736 1.43,0.87 L11.115,10.556 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

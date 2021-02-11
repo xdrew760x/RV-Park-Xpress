@@ -1,27 +1,74 @@
 .button {
-  @apply inline-block py-1 px-30 uppercase text-p text-white;
+  @apply relative inline-block py-3 px-30 uppercase text-p text-primary-3 font-raleway-bold;
 
+  width: auto;
+  line-height: 1.2;
+  margin: 0;
   letter-spacing: 1px;
+  display: inline-block;
+  overflow: hidden;
+  transition: 0.5s;
+  font-size: 20px;
+  border-radius: 26.57px;
+
+  .header-b & {
+    border-radius: 0;
+  }
+
+  span {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: rgba(white, 0.2);
+    transition: width 1s, height 1s;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    span {
+      width: 400px;
+      height: 400px;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    @apply block mb-15 text-center;
+  }
 }
 
 .button--primary {
-  @apply text-primary-2 border-2 border-primary-2 bg-white;
+  @apply bg-primary-2 text-primary-3 border-6;
 
-  // Hover
-  @media (hover: hover) {
-    &:hover {
-      @apply text-white bg-primary-2;
-    }
-  }
+  border-color: #9ebc97;
 }
 
-.button--secondary,
-.gform_button {
-  @apply border-2 border-primary-2 relative bg-primary-2;
-  // Hover
-  @media (hover: hover) {
-    &:hover {
-      @apply text-white bg-primary-1 border-primary-1;
-    }
-  }
+.button--white {
+  @apply bg-white text-primary-1;
+
+  border: 6px solid #9ebc97;
+}
+
+.button--secondary {
+  @apply bg-primary-2 text-primary-1 border-6 border-white;
+}
+
+.button--sticky {
+  @apply fixed w-full text-center m-0;
+
+  border-radius: 0;
+  z-index: 200;
+  bottom: -100px;
+  transition: all ease 0.5s;
+  border: none;
+  border-top: 3px solid #fff;
+}
+
+.booking--reveal {
+  bottom: 0;
 }

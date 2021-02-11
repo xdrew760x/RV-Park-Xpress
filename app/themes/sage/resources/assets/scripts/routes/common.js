@@ -10,7 +10,6 @@ export default {
     const schedule_two = document.querySelector('.button--close')
     const dropdowns = document.querySelectorAll('.menu-item-has-children')
     const hero = document.querySelector('.js-hero')
-    const cards = document.querySelectorAll('.js-card')
     const jsBackgrounds = document.querySelectorAll('.js-background')
     const galleryThumbs = document.querySelectorAll('.gallery-icon')
 
@@ -32,6 +31,11 @@ export default {
 
     // Handle empty p tags
     paragraphs.forEach(isEmpty)
+
+    $('.toggle__main--nav').click(function() {
+      $(this).toggleClass('activated');
+      $('.primary-nav-a').toggleClass('hidden');
+    });
 
     // Handle hamburger toggle
     if (window.matchMedia('(max-width: 1023px)').matches) {
@@ -103,92 +107,8 @@ export default {
     $('.gfield .datepicker').each(function () {
       $(this).attr('autocomplete', 'off'); });
 
-      //// Carousel Hero
-      if ($('.js-carousel-hero').length) {
-        $('.js-carousel-hero').slick({
-          accessibility: true,
-          adaptiveHeight: false,
-          autoplay: true,
-          autoplaySpeed: 150000,
-          fade: true,
-          pauseOnFocus: false,
-          pauseOnHover: false,
-          speed: 1000,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          dots: true,
-          arrows: true,
-          nextArrow: '<div class="next"><i class="fas fa-chevron-right"></i></div>',
-          prevArrow: '<div class="prev"><i class="fas fa-chevron-left"></i></div>',
-          responsive: [
-            {
-              breakpoint: 768,
-              settings: {
-                arrows: false,
-              },
-            },
-          ],
-        });
-      }
-
-
-
       // Handle portals & featured listings
       if (window.matchMedia('(max-width: 1023px)').matches) {
-        // Portals Becomes Slider on mobile
-        if ($('.js-portals').length) {
-          $('.js-portals').slick({
-            accessibility: true,
-            adaptiveHeight: true,
-            autoplay: true,
-            autoplaySpeed: 5000,
-            arrows: false,
-            dots: false,
-            fade: false,
-            pauseOnFocus: false,
-            pauseOnHover: false,
-            speed: 1000,
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            responsive: [
-              {
-                breakpoint: 768,
-                settings: {
-                  centerPadding: '30px',
-                  centerMode: true,
-                  slidesToShow: 1,
-                },
-              },
-            ],
-          })
-        }
-
-        // Listing Becomes Slider on mobile
-        if ($('.js-listings').length) {
-          $('.js-listings').slick({
-            accessibility: true,
-            adaptiveHeight: true,
-            autoplay: true,
-            autoplaySpeed: 5000,
-            arrows: false,
-            dots: true,
-            fade: false,
-            pauseOnFocus: false,
-            pauseOnHover: false,
-            speed: 1000,
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            responsive: [
-              {
-                breakpoint: 415,
-                settings: {
-                  slidesToShow: 1,
-                  slidesToScroll: 1,
-                },
-              },
-            ],
-          })
-        }
 
         // Columns Becomes Slider on mobile
         if ($('.js-columns-1').length) {
@@ -273,57 +193,6 @@ export default {
       }
 
 
-
-      // Handle cards
-      if (cards) {
-        cards.forEach(card => {
-          const mblCard = card.dataset.mobile
-          const dskCard = card.dataset.desktop
-
-          if (mblCard && dskCard) {
-            if (window.matchMedia('(min-width: 1024px)').matches) {
-              card.style.backgroundImage = `url(${dskCard})`
-            } else {
-              card.style.backgroundImage = `url(${mblCard})`
-            }
-          }
-        })
-      }
-
-
-      if ($('.js-carousel-sale').length) {
-        $('.js-carousel-sale').slick({
-          accessibility: true,
-          adaptiveHeight: false,
-          autoplay: true,
-          autoplaySpeed: 15000,
-          arrows: false,
-          fade: false,
-          pauseOnFocus: false,
-          pauseOnHover: false,
-          speed: 1000,
-          slidesToShow: 3,
-          slidesToScroll: 1,
-
-          responsive: [
-            {
-              breakpoint: 1023,
-              settings: {
-                slidesToShow: 2,
-                dots: true,
-              },
-            },
-            {
-              breakpoint: 768,
-              settings: {
-                slidesToShow: 1,
-                dots: true,
-              },
-            },
-          ],
-        });
-      }
-
       // JavaScript to be fired on the home page, after the init JS
       // Slick
       if ($('.js-carousel-gallery').length) {
@@ -355,55 +224,6 @@ export default {
         });
       }
 
-
-      $('.js-carousel-featured').slick({
-        accessibility: true,
-        adaptiveHeight: true,
-        autoplay: true,
-        autoplaySpeed: 15000,
-        fade: true,
-        pauseOnFocus: false,
-        pauseOnHover: false,
-        speed: 1000,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        dots: false,
-        arrows: true,
-        nextArrow: '<div class="next"><i class="fas fa-chevron-right"></i></div>',
-        prevArrow: '<div class="prev"><i class="fas fa-chevron-left"></i></div>',
-      });
-
-
-      $('.js-slingle--slider').slick({
-        accessibility: true,
-        adaptiveHeight: false,
-        autoplay: true,
-        autoplaySpeed: 15000,
-        fade: false,
-        pauseOnFocus: false,
-        pauseOnHover: false,
-        speed: 1000,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        dots: false,
-        arrows: true,
-        nextArrow: '<div class="next"><i class="fas fa-chevron-right"></i></div>',
-        prevArrow: '<div class="prev"><i class="fas fa-chevron-left"></i></div>',
-        responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 2,
-            },
-          },
-          {
-            breakpoint: 768,
-            settings: {
-              slidesToShow: 1,
-            },
-          },
-        ],
-      });
 
     },
     finalize() {

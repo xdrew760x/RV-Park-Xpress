@@ -1,6 +1,30 @@
 .hero__type--c {
-  @media (max-width: 1023px) {
-    max-height: auto !important;
+  .slick-arrow {
+    svg,
+    i {
+      border: 1px solid white;
+      border-radius: 100%;
+      margin: 0;
+      color: white;
+      height: 45px;
+      width: 45px;
+      padding: 15px;
+      line-height: 0.7;
+
+      &:hover {
+        @apply text-primary-1 bg-primary-2 border-primary-1;
+
+        cursor: pointer;
+      }
+    }
+  }
+
+  .next {
+    right: 5%;
+  }
+
+  .prev {
+    left: 5%;
   }
 }
 
@@ -8,9 +32,15 @@
 .hero__carousel__image {
   display: flex !important;
   justify-content: center !important;
-  align-items: center !important;
+  align-items: center;
 
   @media (max-width: 1023px) {
-    min-height: 350px !important;
+    min-height: 200px !important;
+    height: auto !important;
+    max-height: auto !important;
+
+    .home & {
+      min-height: 500px !important;
+    }
   }
 }

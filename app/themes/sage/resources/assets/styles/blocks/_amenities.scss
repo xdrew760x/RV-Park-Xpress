@@ -1,0 +1,23 @@
+.section--amenities {
+  .amenities--list {
+    @media (max-width: 1023px) {
+      @apply flex;
+
+      flex-flow: row wrap;
+    }
+
+    .amenities {
+      @apply text-center p-2;
+
+      @media (max-width: 1023px) {
+        @apply w-1/2;
+      }
+
+      .amenities--icon {
+        @apply w-full block bg-contain bg-no-repeat bg-center;
+
+        height: 100px;
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+.section--col-center {
+  @media (max-width: 1023px) {
+    padding: 0 !important;
+  }
+
+  .container {
+    @apply relative px-0;
+
+    .col {
+      min-height: 800px;
+
+      @media (max-width: 1023px) {
+        @apply absolute;
+
+        min-height: 50%;
+        height: 40%;
+        margin-top: 0 !important;
+
+        &:nth-child(1) {
+          bottom: 0;
+        }
+
+        &:nth-child(2) {
+          top: 0;
+        }
+      }
+    }
+
+    .col-center {
+      @apply w-full absolute mx-auto block;
+
+      left: 0;
+      right: 0;
+      top: 25%;
+      max-width: 500px;
+
+      @media (max-width: 1023px) {
+        @apply px-15 my-45 relative;
+
+        top: 10%;
+      }
+
+      .col-inner {
+        @apply bg-white p-45;
+      }
+    }
+  }
+}

@@ -5,7 +5,7 @@ $testimonial_animation = get_field('test_animation_control');
 
 
 <div class="container py-90">
-  <div class="@if(!is_admin()){!! $testimonial_animation !!}@endif text-center">
+  <div class="testi--container @if(!is_admin()){!! $testimonial_animation !!}@endif text-center">
     @php
     $testimonials_cnt = get_field('testimonial_content');
     @endphp

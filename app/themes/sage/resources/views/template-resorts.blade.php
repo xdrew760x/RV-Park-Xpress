@@ -1,0 +1,12 @@
+{{--
+  Template Name: Resort Template
+  Template Post Type: resorts
+--}}
+
+@extends('layouts.app')
+
+@section('content')
+  @while(have_posts()) @php the_post() @endphp
+    @include('partials.content-page')
+  @endwhile
+@endsection

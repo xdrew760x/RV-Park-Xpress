@@ -8,10 +8,10 @@
     })(window,document,'script','dataLayer','GTM-{!! $tag_manager !!}');</script>
     <!-- End Google Tag Manager -->
   @endif
+  <script src="/app/themes/sage/resources/assets/scripts/vanilla-tilt.min.js."></script>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script src="https://kit.fontawesome.com/bbe9f521dc.js" crossorigin="anonymous"></script>
   @php wp_head() @endphp
-
 </head>

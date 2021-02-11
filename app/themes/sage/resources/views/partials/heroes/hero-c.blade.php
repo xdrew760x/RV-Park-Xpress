@@ -14,37 +14,40 @@ $max_height = get_field('hero_height');
 //// Carousel Hero
 jQuery(document).ready( function($){
     $('.js-carousel-hero').slick({
-    accessibility: true,
-    adaptiveHeight: false,
-    autoplay: true,
-    autoplaySpeed: 150000,
-    fade: true,
-    pauseOnFocus: false,
-    pauseOnHover: false,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    dots: true,
-    arrows: true,
-    nextArrow: '<div class="next"><i class="fas fa-chevron-right"></i></div>',
-    prevArrow: '<div class="prev"><i class="fas fa-chevron-left"></i></div>',
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: false,
+      accessibility: true,
+      adaptiveHeight: false,
+      autoplay: true,
+      autoplaySpeed: 6000,
+      fade: true,
+      pauseOnFocus: false,
+      pauseOnHover: false,
+      speed: 1000,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: false,
+      arrows: true,
+      infinite: true,
+      nextArrow: '<div class="next"><i class="fas fa-chevron-right"></i></div>',
+      prevArrow: '<div class="prev"><i class="fas fa-chevron-left"></i></div>',
+
+      responsive: [
+        {
+          breakpoint: 1023,
+          settings: {
+            dots: true,
+            arrows: false,
+          },
         },
-      },
-    ],
+      ],
   });
 });
 
 
 </script>
 
-<section id="{{ $block['keywords'][0] }}" class="w-full brm-hero" role="region" aria-label="Hero">
+<section id="{{ $block['keywords'][0] }}" class="w-full brm-hero hero__type--c" role="region" aria-label="Hero">
 @if( have_rows('hero_carousel') )
-<section class="section-brm--hero js-carousel-hero">
+<section class="section-brm--hero block js-carousel-hero @if(is_admin()) container px-0 @endif">
   @while( have_rows('hero_carousel') ) @php the_row() @endphp
   @php
   if ( get_sub_field('hero_carousel_image') ) {
@@ -55,7 +58,7 @@ jQuery(document).ready( function($){
   }
   @endphp
 
-  <div class="hero__carousel__image h-hero md:h-hero_mobile bg-center bg-cover bg-no-repeat js-background"
+  <div class="hero__carousel__image h-hero md:h-hero_mobile bg-center bg-cover bg-no-repeat js-background text-white"
   style="background-image:url({{ $carousel_desktop }});
   min-height: {!! $max_height !!}px;
   "

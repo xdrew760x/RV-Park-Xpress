@@ -33,15 +33,7 @@ class GFExport {
 		$forms['version'] = GFForms::$version;
 		$forms_json       = json_encode( $forms );
 
-		/**
-		 * Allows the form export filename to be changed.
-		 *
-		 * @since 2.3.4
-		 *
-		 * @param string   $filename	The new filename to use for the export file.
-		 * @param array    $form_ids    Array containing the IDs of forms selected for export.
-		 */
-		$filename = apply_filters( 'gform_form_export_filename', 'gravityforms-export-' . date( 'Y-m-d' ), $form_ids ) . '.json';
+		$filename = apply_filters( 'gform_form_export_filename', 'gravityforms-export-' . date( 'Y-m-d' ) ) . '.json';
 		$filename = sanitize_file_name( $filename );
 		header( 'Content-Description: File Transfer' );
 		header( "Content-Disposition: attachment; filename=$filename" );

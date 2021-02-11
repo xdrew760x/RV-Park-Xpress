@@ -1,0 +1,85 @@
+.property__listings {
+  .form--properties {
+    //
+  }
+
+  .section--homesale {
+    .property--item {
+      //
+    }
+
+    .slick-dots {
+      @apply text-center;
+    }
+
+    .column-property-img {
+      overflow: hidden;
+
+      .property--image {
+        @apply relative;
+
+        min-height: 250px;
+        transform: scale(1);
+        transition: all ease 1s;
+
+        &::after {
+          @apply h-45 absolute w-full capitalize py-1 text-center z-40 text-white;
+
+          content: "";
+          top: 10%;
+          right: -35%;
+          transform: rotate(45deg);
+          transition: all ease 0.5s;
+        }
+
+        &:hover {
+          transform: scale(1.2);
+
+          &::after {
+            top: 20%;
+            right: -25%;
+          }
+        }
+      }
+
+      .for-sale-by-owner {
+        &::after {
+          @apply bg-primary-1;
+
+          content: "owner";
+        }
+      }
+
+      .rentals {
+        &::after {
+          @apply bg-primary-2 text-primary-1;
+
+          content: "For Rent";
+        }
+      }
+
+      .sales {
+        &::after {
+          @apply bg-primary-3 text-white;
+
+          content: "For Sale";
+        }
+      }
+    }
+
+    .column-content {
+      @apply flex justify-between items-center;
+
+      flex-flow: column wrap;
+      min-height: 250px;
+
+      .button {
+        color: white !important;
+
+        @media (max-width: 1023px) {
+          @apply block w-full;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,94 @@
+.reservation__form {
+  @apply absolute w-full p-15;
+
+  z-index: 100;
+
+  @media (max-width: 1023px) {
+    @apply relative p-0;
+
+    margin: 0 auto !important;
+    bottom: 0;
+  }
+
+  form {
+    @apply flex justify-center items-start;
+
+    @media (max-width: 1023px) {
+      flex-flow: row wrap;
+    }
+
+    .select--field {
+      @apply w-1/5 mx-2 relative;
+
+      &::after {
+        content: "";
+        width: 15px;
+        height: 15px;
+        right: 15px;
+        top: 15px;
+        background-image: url(/app/themes/sage/resources/assets/images/select-arrow.svg);
+
+        @apply absolute bg-cover bg-center;
+      }
+
+      @media (max-width: 1023px) {
+        @apply w-full mb-15 mx-0;
+      }
+
+      select {
+        @apply h-45 px-2 border-2 border-primary-5 w-full;
+
+        -webkit-appearance: none;
+        appearance: none;
+      }
+    }
+
+    button {
+      @apply w-auto;
+    }
+
+    .does-nothing,
+    .does-something {
+      @apply ml-2;
+
+      @media (max-width: 1023px) {
+        @apply text-center;
+
+        flex-flow: column wrap;
+
+        .button {
+          @apply mb-15;
+        }
+      }
+    }
+  }
+
+  .section-brm--hero & {
+    @apply bg-transparent;
+
+    bottom: -65px;
+
+    .container {
+      @apply bg-white p-30;
+
+      @media (max-width: 1023px) {
+        @apply px-15;
+      }
+    }
+  }
+
+  .display-form & {
+    @apply bg-primary-4;
+
+    top: 0;
+    bottom: auto;
+
+    .container {
+      @apply bg-transparent p-0;
+    }
+  }
+}
+
+.nothing {
+  pointer-events: none;
+}

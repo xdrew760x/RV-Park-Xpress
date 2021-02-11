@@ -59,6 +59,7 @@ class autoptimizeScripts extends autoptimizeBase
         'post_id',
         'data-noptimize',
         'logHuman',
+        'amp-mobile-version-switcher',
     );
 
     /**
@@ -107,6 +108,13 @@ class autoptimizeScripts extends autoptimizeBase
      * @var bool
      */
     private $aggregate = true;
+
+    /**
+     * Setting; if not aggregated, should we defer?
+     *
+     * @var bool
+     */
+    private $defer_not_aggregate = false;
 
     /**
      * Setting; try/catch wrapping or not.
@@ -165,11 +173,11 @@ class autoptimizeScripts extends autoptimizeBase
     private $md5hash = '';
 
     /**
-     * Setting (filter); whitelist of to be aggregated JS.
+     * Setting (filter); allowlist of to be aggregated JS.
      *
      * @var string
      */
-    private $whitelist = '';
+    private $allowlist = '';
 
     /**
      * Setting (filter); holds JS that should be removed.
@@ -206,9 +214,10 @@ class autoptimizeScripts extends autoptimizeBase
         }
 
         // only optimize known good JS?
-        $whitelist_js = apply_filters( 'autoptimize_filter_js_whitelist', '', $this->content );
-        if ( ! empty( $whitelist_js ) ) {
-            $this->whitelist = array_filter( array_map( 'trim', explode( ',', $whitelist_js ) ) );
+        $allowlist_js = apply_filters( 'autoptimize_filter_js_allowlist', '', $this->content );
+        $allowlist_js = apply_filters( 'autoptimize_filter_js_whitelist', $allowlist_js, $this->content ); // fixme: to be removed in next version.
+        if ( ! empty( $allowlist_js ) ) {
+            $this->allowlist = array_filter( array_map( 'trim', explode( ',', $allowlist_js ) ) );
         }
 
         // is there JS we should simply remove?
@@ -231,6 +240,11 @@ class autoptimizeScripts extends autoptimizeBase
         // Returning true for "dontaggregate" turns off aggregation.
         if ( $this->aggregate && apply_filters( 'autoptimize_filter_js_dontaggregate', false ) ) {
             $this->aggregate = false;
+        }
+        
+        // Defer when not aggregating.
+        if ( false === $this->aggregate && apply_filters( 'autoptimize_js_filter_defer_not_aggregate', $options['defer_not_aggregate'] ) ) {
+            $this->defer_not_aggregate = true;
         }
 
         // include inline?
@@ -301,7 +315,7 @@ class autoptimizeScripts extends autoptimizeBase
         // Get script files.
         if ( preg_match_all( '#<script.*</script>#Usmi', $this->content, $matches ) ) {
             foreach ( $matches[0] as $tag ) {
-                // only consider script aggregation for types whitelisted in should_aggregate-function.
+                // only consider script aggregation for types allowlisted in should_aggregate-function.
                 $should_aggregate = $this->should_aggregate( $tag );
                 if ( ! $should_aggregate ) {
                     $tag = '';
@@ -332,6 +346,15 @@ class autoptimizeScripts extends autoptimizeBase
                                 if ( false !== strpos( $orig_tag, $excl_tag ) && in_array( $excl_flags, array( 'async', 'defer' ) ) ) {
                                     $new_tag = str_replace( '<script ', '<script ' . $excl_flags . ' ', $new_tag );
                                 }
+                            }
+                        }
+                        
+                        // not aggregating but deferring?
+                        if ( $this->defer_not_aggregate && false === $this->aggregate && str_replace( $this->dontmove, '', $path ) === $path && strpos( $new_tag, ' defer' ) === false ) {
+                            $new_tag = str_replace( '<script ', '<script defer ', $new_tag );
+                            // and remove async as async+defer=async while we explicitly want defer.
+                            if ( strpos( $new_tag, ' async' ) !== false && apply_filters( 'autoptimize_filter_js_defer_remove_async', true ) ) {
+                                $new_tag = str_replace( array( ' async', ' async="async"', " async='async'" ), '', $new_tag );
                             }
                         }
 
@@ -602,7 +625,7 @@ class autoptimizeScripts extends autoptimizeBase
     }
 
     /**
-     * Checks against the white- and blacklists.
+     * Checks against the allow- and blocklists.
      *
      * @param string $tag JS tag.
      */
@@ -612,13 +635,13 @@ class autoptimizeScripts extends autoptimizeBase
             return false;
         }
 
-        if ( ! empty( $this->whitelist ) ) {
-            foreach ( $this->whitelist as $match ) {
+        if ( ! empty( $this->allowlist ) ) {
+            foreach ( $this->allowlist as $match ) {
                 if ( false !== strpos( $tag, $match ) ) {
                     return true;
                 }
             }
-            // No match with whitelist.
+            // No match with allowlist.
             return false;
         } else {
             foreach ( $this->domove as $match ) {
@@ -645,9 +668,9 @@ class autoptimizeScripts extends autoptimizeBase
     }
 
     /**
-     * Checks agains the blacklist.
+     * Checks agains the blocklist.
      *
-     * @param string $tag tag to check for blacklist (exclusions).
+     * @param string $tag tag to check for blocklist (exclusions).
      */
     private function ismovable( $tag )
     {
@@ -756,6 +779,9 @@ class autoptimizeScripts extends autoptimizeBase
             if ( empty( $contents ) ) {
                 return false;
             }
+
+            // Filter contents of excluded minified CSS.
+            $contents = apply_filters( 'autoptimize_filter_js_single_after_minify', $contents );
 
             // Store in cache.
             $cache->cache( $contents, 'text/javascript' );

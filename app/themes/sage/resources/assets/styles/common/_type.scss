@@ -4,19 +4,20 @@ h3,
 h4,
 h5,
 h6 {
-  @apply mb-15 leading-tight text-primary-2 font-raleway-black;
+  @apply mb-15 text-primary-1;
+
+  line-height: 1.1;
 }
 
 h1 {
-  @apply text-h1_m text-primary-1;
+  @apply text-h1_m text-primary-3 font-raleway-regular uppercase;
 
-  letter-spacing: 1px;
+  letter-spacing: 6px;
 
   .section-brm--hero & {
-    @apply text-h1_hero_m;
-
-    text-shadow: 4px 4px 0 #8a0000;
+    @apply text-h1_hero_m relative mt-15;
   }
+
   // 1024
   @media (min-width: 1024px) {
     @apply text-h1;
@@ -28,13 +29,23 @@ h1 {
 }
 
 h2 {
-  @apply text-h2 text-primary-1;
+  @apply text-h2_m text-primary-3 font-raleway-regular uppercase;
+
+  letter-spacing: 4px;
+
+  .section-brm--hero & {
+    @apply text-white;
+  }
+
+  @media (min-width: 1024px) {
+    @apply text-h2;
+  }
 }
 
 h3 {
-  @apply text-h3_m text-primary-3;
+  @apply text-h3_m text-primary-3 font-raleway-regular capitalize uppercase;
 
-  letter-spacing: 1.5px;
+  letter-spacing: 3px;
 
   @media (min-width: 1024px) {
     @apply text-h3;
@@ -42,20 +53,30 @@ h3 {
 }
 
 h4 {
-  @apply text-h4 text-primary-1;
+  @apply text-h4_m text-primary-3 font-raleway-semibold uppercase;
+
+  letter-spacing: 3px;
+
+  @media (min-width: 1024px) {
+    @apply text-h4;
+  }
 }
 
 h5 {
-  @apply text-h5 text-primary-2;
+  @apply text-h5 text-primary-3 font-raleway-bold uppercase;
 }
 
 h6 {
-  @apply text-h6 text-primary-1;
+  @apply text-h6 text-primary-3 font-raleway-bold uppercase;
+
+  letter-spacing: 2px;
 }
 
 p,
 ul:not([class]) {
-  @apply mb-15 text-p text-primary-3 leading-normal font-raleway-regular;
+  @apply mb-15 text-p text-primary-3 font-raleway-regular;
+
+  line-height: 1.5;
 
   &:last-child {
     @apply mb-0;
@@ -64,23 +85,29 @@ ul:not([class]) {
   @media (max-width: 1023px) {
     @apply text-p_m;
   }
-
-  .section-brm--hero & {
-    @apply text-hero_p;
-  }
 }
 
 b,
 strong,
 span {
-  @apply font-raleway-bold;
+  @apply text-primary-3 font-raleway-bold text-p;
 }
 
 a {
-  @apply text-primary-1 font-raleway-bold;
+  @apply text-primary-3 font-raleway-semibold;
+
+  letter-spacing: 2px;
+}
+
+a:not([class]) {
+  &:hover {
+    filter: brightness(0.5);
+  }
 }
 
 small,
 .small-style {
-  @apply text-primary-1 text-small leading-normal block mb-2;
+  @apply text-small leading-normal text-primary-3 block mb-2 uppercase font-raleway-regular;
+
+  letter-spacing: 1px;
 }

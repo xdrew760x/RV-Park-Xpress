@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="31px" viewBox="0 0 18 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Path</title>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-961.000000, -4224.000000)" fill="#173160" fill-rule="nonzero" id="Newsletter/Social-Bar">
+            <g transform="translate(0.000000, 4135.000000)">
+                <g id="Newsletter" transform="translate(375.000000, 78.000000)">
+                    <path d="M586.427468,25.4709041 L600.661914,11.4267721 C601.229842,10.8577426 602.148193,10.8577426 602.716121,11.4267721 L603.574054,12.2863698 C604.141982,12.8553993 604.141982,13.7755321 603.574054,14.3445616 L591.212562,26.5 L603.561971,38.6554384 C604.129898,39.2244679 604.129898,40.1446007 603.561971,40.7136302 L602.704037,41.5732279 C602.136109,42.1422574 601.217758,42.1422574 600.64983,41.5732279 L586.415385,27.5290959 C585.859541,26.9600664 585.859541,26.0399336 586.427468,25.4709041 Z" id="Path" transform="translate(595.000000, 26.500000) scale(-1, 1) translate(-595.000000, -26.500000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

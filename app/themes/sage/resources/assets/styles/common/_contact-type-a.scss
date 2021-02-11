@@ -1,9 +1,5 @@
-.max-contained .contact--inner {
-  padding: 0 15px !important;
-}
-
 .contact-a {
-  @apply border-t-2 border-b-2 border-primary-2;
+  @apply relative z-40;
 
   .container {
     @apply flex justify-between items-start px-0;
@@ -12,6 +8,16 @@
 
     @media (max-width: 1023px) {
       flex-flow: column wrap;
+      padding: 0 !important;
+    }
+
+    p,
+    a {
+      @apply text-white;
+    }
+
+    svg {
+      font-size: 16px;
     }
 
     .contact-info,
@@ -24,12 +30,16 @@
     }
 
     .contact--inner {
-      @apply block py-60 px-15 mx-auto mr-0;
+      @apply block px-30 mx-auto ml-0;
 
       max-width: 715px;
 
       @media (max-width: 1023px) {
-        @apply py-0;
+        @apply py-0 px-15;
+      }
+
+      .button--secondary {
+        color: #213343 !important;
       }
     }
 
@@ -37,23 +47,15 @@
     .contact-info--tel,
     .contact-info--email,
     .contact-info--hours {
-      @apply relative pl-30 text-p;
+      @apply relative text-p;
 
       &::before {
         content: "";
         position: absolute;
         left: 0;
-        top: 5px;
-        background-size: contain;
+        width: 30px;
+        height: 30px;
         background-repeat: no-repeat;
-        background-position: center;
-        width: 18px;
-        height: 23px;
-      }
-
-      a,
-      span {
-        @apply text-primary-3;
       }
     }
 
@@ -62,26 +64,35 @@
     }
 
     .contact-info--email {
+      @apply pl-30;
+
       &::before {
-        background-image: url(/app/themes/sage/resources/assets/images/envelope.png);
+        background-image: url(/app/themes/sage/resources/assets/images/envelope.svg);
+        top: 7px;
       }
     }
 
     .contact-info--tel {
+      @apply pl-30;
+
       &::before {
-        background-image: url(/app/themes/sage/resources/assets/images/phone.png);
+        background-image: url(/app/themes/sage/resources/assets/images/phone.svg);
       }
     }
 
     .contact-info--hours {
+      @apply pl-30;
+
       &::before {
-        background-image: url(/app/themes/sage/resources/assets/images/clock.png);
+        background-image: url(/app/themes/sage/resources/assets/images/time.svg);
       }
     }
 
     address {
+      @apply pl-30;
+
       &::before {
-        background-image: url(/app/themes/sage/resources/assets/images/location.png);
+        background-image: url(/app/themes/sage/resources/assets/images/location.svg);
       }
     }
   }

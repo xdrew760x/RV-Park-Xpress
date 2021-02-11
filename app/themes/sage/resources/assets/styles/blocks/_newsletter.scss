@@ -1,0 +1,100 @@
+.section__newsletter {
+  .container {
+    h4 {
+      @apply mb-0;
+    }
+
+    .gform_wrapper {
+      @apply w-full mx-auto block;
+
+      max-width: 550px;
+
+      @media (max-width: 1023px) {
+        max-width: 100%;
+      }
+    }
+
+    form {
+      @apply flex flex-row justify-center items-end text-primary-1 pb-2;
+
+      @media (max-width: 1023px) {
+        @apply border-none justify-center items-center w-full;
+
+        max-width: 100%;
+        flex-flow: column wrap;
+      }
+
+      .gform_body {
+        @apply p-0 pr-15 m-0;
+
+        @media (max-width: 1023px) {
+          @apply w-full pr-0;
+        }
+
+        li {
+          padding: 0 !important;
+          margin: 0 !important;
+
+          input {
+            @apply border-0;
+
+            height: 45px;
+          }
+        }
+      }
+
+      .gform_footer {
+        @apply p-0 m-0 relative;
+
+        @media (max-width: 1023px) {
+          width: 100% !important;
+          margin-top: 15px !important;
+        }
+
+        .button {
+          @apply bg-primary-3 px-30 py-3;
+
+          margin: 0 !important;
+          border-radius: 0;
+          height: 45px;
+          border: none;
+
+          @media (max-width: 1023px) {
+            @apply text-center w-full block;
+
+            line-height: 1 !important;
+          }
+        }
+      }
+    }
+
+    .social__media {
+      a {
+        @apply mx-2;
+
+        svg {
+          fill: #466c27;
+          width: 45px;
+          height: 45px;
+          font-size: 30px;
+        }
+      }
+    }
+
+    .border-right {
+      @apply relative text-left;
+
+      @media (min-width: 1024px) {
+        &::after {
+          @apply absolute text-center bg-primary-2;
+
+          content: "";
+          width: 2px;
+          height: 100%;
+          right: 0;
+          top: 0;
+        }
+      }
+    }
+  }
+}

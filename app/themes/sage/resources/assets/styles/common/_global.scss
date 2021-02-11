@@ -9,7 +9,7 @@
 }
 
 body {
-  @apply text-gray-900 bg-white text-primary-2 text-p font-raleway-regular;
+  @apply bg-white text-primary-3 text-p font-raleway-regular;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -20,10 +20,8 @@ html {
   overflow-x: hidden;
 }
 
-.section--full {
-  @media (max-width: 1023px) {
-    padding: 30px 0 !important;
-  }
+#wpadminbar {
+  position: fixed !important;
 }
 
 /// error 404
@@ -38,28 +36,14 @@ html {
 }
 
 footer {
-  @apply px-15;
-
   .copyright {
     span,
     a {
-      @apply font-raleway-regular uppercase;
+      @apply uppercase;
 
       font-size: 12px;
     }
   }
-}
-
-.gradient-bl-tr {
-  background: linear-gradient(45deg, var(--primary-1) 0%, var(--primary-3) 100%);
-}
-
-.gradient-br-tl {
-  background: linear-gradient(135deg, var(--primary-1) 0%, var(--primary-3) 100%);
-}
-
-.gradient-l-r {
-  background: linear-gradient(90deg, var(--primary-3) 30%, var(--primary-1) 70%);
 }
 
 hr {
@@ -99,7 +83,7 @@ iframe {
 
 ol:not([class]),
 ul:not([class]) {
-  @apply mb-10 pl-10 list-disc;
+  @apply mb-10 pl-6 list-disc;
 }
 
 li:not([class]) {
@@ -119,7 +103,6 @@ li:not([class]) + li:not([class]) {
 
 /// Dark backgrounds
 .bg-primary-1,
-.bg-primary-2,
 .bg-primary-3,
 .text-white,
 .bg-black,
@@ -136,10 +119,28 @@ li:not([class]) + li:not([class]) {
   a:not([class]),
   span:not([class]),
   label,
-  svg {
+  svg,
+  small,
+  strong {
     @apply text-white;
 
     fill: white !important;
-    text-shadow: 2px 2px 2px black;
+  }
+}
+
+.bg-white {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul:not([class]),
+  p,
+  a:not([class]),
+  span:not([class]),
+  label,
+  .button {
+    color: inherit;
   }
 }

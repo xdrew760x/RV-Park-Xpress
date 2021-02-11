@@ -70,14 +70,17 @@ module.exports = {
         800: '#2c5282',
         900: '#2a4365'
       },
-      primary: {
-        1: '#e77c37',
-        2: '#3A3A3A',
-        3: '#3A3A3A',
-        4: '#F5F5F5',
-        5: '#D8D8D8',
 
+      primary: {
+        1: '#49823B',
+        2: '#C2DDDB',
+        3: '#595959',
+        4: '#F3F5F5',
+        5: '#EFEFEF',
+        6: '#979797',
+        7: '#B55700', // Hover for prime 3
       }
+
     },
     spacing: {
       px: '1px',
@@ -91,6 +94,7 @@ module.exports = {
       '8': '2rem',
       '10': '2.5rem',
       '12': '3rem',
+      '15': '15px',
       '16': '4rem',
       '20': '5rem',
       '24': '6rem',
@@ -109,6 +113,7 @@ module.exports = {
       '120': '120px',
       '135': '135px',
       '150': '150px',
+      '250': '250px',
       buffer: '0.9375rem'
     },
     backgroundColor: theme => theme('colors'),
@@ -145,6 +150,7 @@ module.exports = {
       '1': '1px',
       '2': '2px',
       '4': '4px',
+      '6': '6px',
       '8': '8px'
     },
     boxShadow: {
@@ -197,17 +203,16 @@ module.exports = {
         'Font Awesome\\ 5 Pro Solid'
       ],
 
-      'raleway-black': [
-        'raleway-black'
-      ],
       'raleway-bold': [
         'raleway-bold'
       ],
-      'raleway-italic': [
-        'raleway-italic'
-      ],
+
       'raleway-regular': [
         'raleway-regular'
+      ],
+
+      'raleway-semibold': [
+        'raleway-semibold'
       ],
 
       sans: [
@@ -225,8 +230,8 @@ module.exports = {
         'Noto Color Emoji'
       ],
       serif: ['Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
-      'roboto-regular': [
-        'roboto-regular',
+      'lato-regular': [
+        'lato-regular',
         'Helvetica Neue',
         'Arial',
         'Noto Sans',
@@ -251,26 +256,28 @@ module.exports = {
       drop: '24px',
       drop: '24px',
 
-      h1_hero: '70px',
-      h1_hero_m: '46px',
+      h1_hero: '62px',
+      h1_hero_m: '43px',
 
-      h1: '40px',
-      h1_m: '40px',
+      h1: '62px',
+      h1_m: '43px',
 
-      h2: '38px',
+      h2: '52px',
+      h2_m: '34px',
 
-      h3: '36px',
-      h3_m: '36px',
+      h3: '44px',
+      h3_m: '34px',
 
-      h4: '34px',
-      h5: '30px',
-      h6: '25px',
+      h4: '38px',
+      h4_m: '28px',
 
-      p: '23px',
-      p_m: '23px',
+      h5: '32px',
+      h6: '20px',
 
-      small: '18px',
-      hero_p: '40px',
+      small: '16px',
+
+      p: '24px',
+      p_m: '24px',
 
       xs: '1rem',
       sm: '1.125rem',
@@ -303,7 +310,7 @@ module.exports = {
       hero_mobile: '360px',
       hero_secondary: '400px',
       hero_secondary_mobile: '300px',
-      icon: '20px',
+      icon: '30px',
       dot: '15px',
       hamburger: '4px'
     }),
@@ -345,7 +352,7 @@ module.exports = {
     maxHeight: {
       full: '100%',
       screen: '100vh',
-      icon: '30px',
+      icon: '45px',
       phone: '32px'
     },
     maxWidth: {

@@ -43,8 +43,8 @@ $contact_hours = get_field('contact_hours', 'options');
         {!! $link['svg'] !!}
       </a>
       @endforeach
-      @endif
     </div>
+    @endif
 
   </div>
 </div>

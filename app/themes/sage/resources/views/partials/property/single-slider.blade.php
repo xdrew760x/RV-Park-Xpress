@@ -31,6 +31,14 @@ $specific_type = 'araby-acres';
 @endif
 
 
+@if(is_singular('las-quintas-oasis'))
+@php
+$specific_type = 'las-quintas-oasis';
+@endphp
+@endif
+
+
+
 
 @php
 $feautred_listing = get_posts([
@@ -78,6 +86,5 @@ $feautred_listing = get_posts([
       @endforeach
     </div>
 
-    <a href="{!! get_permalink(104) !!}" class="button button--primary">View all Listings</a>
   </div>
 </div>

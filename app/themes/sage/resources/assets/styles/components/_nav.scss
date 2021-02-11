@@ -27,9 +27,8 @@
   // 1024
   .menu-item:hover & {
     @media (min-width: 1024px) {
-      @apply block absolute top-100 right-buffer pl-0;
+      @apply block absolute right-buffer pl-0;
 
-      left: 0;
       min-width: 275px;
     }
   }
@@ -85,49 +84,13 @@
   }
 }
 
-.nav {
-  @apply pl-0 list-none;
-}
-
-#menu-primary-navigation.nav,
-#menu-footer-navigation.nav {
-  .sub-menu a {
-    @apply capitalize leading-none;
-  }
-
-  // 1024
-  @media (min-width: 1024px) {
-    .footer-b & {
-      @apply flex items-start justify-start ml-0 p-0;
-
-      flex-flow: column wrap;
-    }
-
-    li {
-      .footer-b & {
-        @apply m-0 p-0;
-      }
-
-      @apply pl-15;
-    }
-  }
-}
-
-#menu-pagination-navigation.nav {
-  @apply flex flex-row items-center justify-start mt-10;
-
-  li + li {
-    @apply ml-5;
-  }
-}
-
 // Has Dropdown
 .menu-item-has-children {
   // 1023 <=
   @media (max-width: 1023px) {
     > a {
       &::after {
-        @apply inline-block text-primary-2 ml-2 font-fontawesome-solid;
+        @apply inline-block text-primary-1 ml-2 font-fontawesome-solid;
 
         content: "\f078";
       }

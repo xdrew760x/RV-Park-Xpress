@@ -77,7 +77,7 @@ jQuery(document).ready( function($){
     slidesToShow: '<?php echo $post_number; ?>',
     slidesToScroll: 1,
     dots: false,
-    arrows: true,
+    arrows: false,
     nextArrow: '<div class="next"><i class="fas fa-chevron-right"></i></div>',
     prevArrow: '<div class="prev"><i class="fas fa-chevron-left"></i></div>',
     responsive: [
@@ -90,6 +90,8 @@ jQuery(document).ready( function($){
       {
         breakpoint: 768,
         settings: {
+          centerPadding: '30px',
+          centerMode: true,
           slidesToShow: '<?php echo $post_to_show_mobile; ?>',
         },
       },
@@ -98,9 +100,9 @@ jQuery(document).ready( function($){
 });
 </script>
 
-<div class="brm-featured featured--listings">
+<div class="brm-featured featured--listings md:py-30">
   @if($carousel_blurb)
-  <div class="content">
+  <div class="container py-45 md:py-0">
     {!! $carousel_blurb !!}
   </div>
   @endif
@@ -114,6 +116,7 @@ jQuery(document).ready( function($){
     $value = get_field('post_type_selection');
     $label = $field['choices'][ $value ];
     $property_price = get_field('property_price',$listings->ID);
+    $sale_status = get_field('sale_status', $listings->ID);
 
     $price_format = [
     'Price'     => '$' . number_format( $property_price, 0 ),
@@ -127,13 +130,13 @@ jQuery(document).ready( function($){
     <div class="brm-featured--item">
       @if($featured_img_url)
       <div class="column-featured-img">
-        <div class="carousel-featured--image" style="background-image: url({!! $featured_img_url !!})"></div>
-      </div>
+        <a href="{!! get_permalink($listings->ID) !!}"><div class="carousel-featured--image {!! $sale_status !!}" style="background-image: url({!! $featured_img_url !!})"></div>
+      </div></a>
       @endif
       <div class="column-content text-center">
-        <h5 class="mb-0">{{ $listings->post_title }}</h5>
+        <a href="{!! get_permalink($listings->ID) !!}"><h5 class="mb-0">{{ $listings->post_title }}</h5></a>
         <p>&#36;{!! number_format( $property_price, 0 ) !!} | {!! $amount_of_bedrooms !!} | {!! $amount_of_bathrooms !!}</p>
-        <a href="{!! get_permalink($listings->ID) !!}" class="button button--borderless">View Listings</a>
+        <a href="{!! get_permalink($listings->ID) !!}" class="button button--borderless">View Listing</a>
       </div>
     </div>
     @php wp_reset_postdata() @endphp

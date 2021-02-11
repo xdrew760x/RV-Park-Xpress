@@ -1,48 +1,74 @@
 .header-a {
-  margin-top: 0;
+  @apply mt-0 relative;
+
   transition: all ease 1s;
-  z-index: 100;
+  z-index: 500;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.17);
 
-  // Wesbite Logo Styling
-  .header__branding {
-    img {
-      @apply block mx-auto;
+  .logged-in & {
+    top: 30 !important;
 
-      max-width: 340px;
-      transition: all ease 1s;
-
-      @media (max-width: 1200px) {
-        max-width: 250px;
-      }
-
-      @media (max-width: 1023px) {
-        max-width: 200px;
-      }
+    @media (max-width: 768px) {
+      top: 0 !important;
     }
   }
 
-  .header__bottom {
-    @apply py-15 bg-primary-2;
+  svg {
+    @apply text-primary-1 mr-2;
+  }
+
+  .button svg {
+    @apply m-0 text-white;
+  }
+
+  // Wesbite Logo Styling
+  .header__branding {
+    @apply absolute;
+
+    left: 15px;
+    top: -35px;
+
+    @media (max-width: 1023px) {
+      @apply absolute block mx-auto;
+
+      top: -5px;
+      left: 0;
+      right: 0;
+    }
+
+    img {
+      max-width: 330px;
+
+      @media (max-width: 1023px) {
+        @apply -mb-3;
+
+        max-width: 150px;
+      }
+    }
   }
 
   // hamburger Icon
   .w-hamburger {
-    @apply bg-white relative;
+    @apply bg-primary-2 relative;
 
     .nav-is-open & {
-      @apply bg-primary-1;
+      @apply bg-white;
     }
   }
 
   .nav-toggle {
+    @apply relative;
+
     span {
-      @apply bg-white;
+      @apply bg-primary-1;
 
       &::before,
       &::after {
-        @apply bg-white;
+        @apply bg-primary-1;
 
         .nav-is-open & {
+          @apply bg-primary-1;
+
           opacity: 1;
         }
       }
@@ -57,80 +83,70 @@
     @media (max-width: 1023px) {
       @apply hidden;
 
+      .primary-nav-a {
+        @apply w-full;
+
+        order: 2;
+      }
+
+      .button {
+        @apply w-full text-center mb-15;
+
+        order: 1;
+      }
+
+      .mobile__meta {
+        order: 3;
+      }
+
+      svg {
+        @apply text-primary-1;
+      }
+
       // Navigation Open
       .nav-is-open & {
-        @apply block mt-120 p-30 absolute w-full bg-primary-1;
+        @apply flex p-15 absolute w-full bg-primary-5 mt-45;
 
         left: 0;
+        flex-flow: column wrap;
+        overflow: scroll;
+        padding-bottom: 90px;
         top: 0;
         height: 100vh;
+        z-index: -1;
 
         a {
-          @apply uppercase leading-normal text-white font-raleway-bold;
-
-          span {
-            @apply pl-2 font-raleway-bold;
-          }
+          @apply uppercase leading-normal text-white text-primary-1;
         }
-      }
-    }
 
-    .primary-nav-a {
-      @media (min-width: 1024px) {
-        @apply flex justify-end items-center mt-0;
-      }
-
-      @media (max-width: 1023px) {
-        @apply relative mb-30;
-
-        &::after {
-          @apply bg-white absolute;
-
-          content: "";
-          width: 75px;
-          height: 2px;
-          bottom: -15px;
+        .button {
+          @apply text-white;
         }
       }
     }
 
     li {
       @media (min-width: 1024px) {
-        @apply ml-15;
+        @apply ml-15 py-2;
       }
 
       @media (max-width: 1023px) {
-        @apply mt-2;
+        @apply py-2 border-b-2 border-primary-2;
       }
 
       a {
-        @apply uppercase leading-normal text-primary-3;
+        @apply uppercase leading-normal text-primary-4 font-lato-regular;
 
-        font-size: 18px;
-
-        @media (max-width: 1200px) {
-          font-size: 16px;
-        }
+        font-size: 20px;
 
         @media (max-width: 1023px) {
           @apply text-white;
-
-          font-size: 24px;
         }
-      }
-    }
-
-    // Last Menu item
-    .menu-item-122 {
-      @apply border-2 border-primary-2 py-2;
-
-      a {
-        @apply p-15 text-primary-2;
       }
     }
 
     // Home Button and other unique menu-items
-    .page-item-2 {
+    .menu-item-20 {
       @media (min-width: 1024px) {
         @apply hidden;
       }
@@ -138,14 +154,26 @@
 
     // sub-menu Background Color control
     .sub-menu {
-      @apply bg-white;
-
       @media (min-width: 1024px) {
-        left: -15px !important;
+        @apply bg-primary-2;
+
+        left: -15px;
+        top: 100%;
+        z-index: -1;
+        border-top: 4px solid rgba(0, 0, 0, 0.17);
+        min-width: 300px !important;
       }
 
       a {
         @apply capitalize;
+      }
+
+      li {
+        @apply border-0 ml-0;
+
+        @media (min-width: 1024px) {
+          @apply pl-15;
+        }
       }
     }
 
@@ -154,31 +182,13 @@
     }
   }
 
-  // Phone Number & CTA
-  .header__top {
-    .container {
-      @apply flex justify-end items-center;
+  .social-icon {
+    @apply bg-primary-3 h-45 w-45 p-3;
 
-      flex-flow: row wrap;
+    border-radius: 100%;
 
-      @media (max-width: 1023px) {
-        justify-content: space-between;
-      }
-
-      a {
-        span,
-        svg {
-          @apply ml-2 font-raleway-bold;
-        }
-
-        @media (min-width: 1024px) {
-          @apply ml-30 text-white font-raleway-bold;
-        }
-      }
-
-      h6 {
-        @apply m-0;
-      }
+    svg {
+      @apply m-0 h-6 w-30;
     }
   }
 
@@ -195,7 +205,7 @@
   // Scrool behavior
   .scroll-head--a {
     @media (min-width: 1024px) {
-      margin-top: -60px !important;
+      margin-top: -60 !important;
 
       .header__branding img {
         max-width: 200px;

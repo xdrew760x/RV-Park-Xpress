@@ -5,7 +5,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container py-45">
   @include('partials.page-header')
 
   <p>Accessibility Statement for <a href="{{ get_bloginfo('url', 'display') }}">{{ preg_replace('/^https?:\/\//', '', get_bloginfo('url', 'display')) }}</a></p>

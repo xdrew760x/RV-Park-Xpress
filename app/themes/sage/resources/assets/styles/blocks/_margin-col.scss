@@ -1,0 +1,41 @@
+.section--col-margin {
+  @media (max-width: 1023px) {
+    padding: 0 !important;
+  }
+
+  .container {
+    @apply relative px-0;
+
+    .col {
+      min-height: 600px;
+
+      @media (max-width: 1023px) {
+        margin-top: 0 !important;
+        min-height: 400px;
+      }
+
+      .gallery--image {
+        @apply w-full h-full;
+
+        padding-bottom: 10%;
+      }
+
+      .slick-arrow {
+        @apply px-15;
+
+        top: 90%;
+        right: 0;
+        width: 60px;
+
+        @media (max-width: 1023px) {
+          top: 80%;
+        }
+      }
+
+      .prev {
+        right: 45px;
+        left: auto;
+      }
+    }
+  }
+}
