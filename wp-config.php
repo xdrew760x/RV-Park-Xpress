@@ -69,24 +69,24 @@ switch(WP_ENV){
 	// Development
 	case 'development':
 		/** The name of the local database for WordPress */
-		define('DB_NAME', 'treeside_db');
+		define('DB_NAME', '');
 
 		/** MySQL local database username */
-		define('DB_USER', 'root');
+		define('DB_USER', '');
 
 		/** MySQL local database password */
-		define('DB_PASSWORD', 'root');
+		define('DB_PASSWORD', '');
 	break;
 	// Production
 	case 'production':
 		/** The name of the live database for WordPress */
-		define('DB_NAME', 'treesiderv_db');
+		define('DB_NAME', '');
 
 		/** MySQL live database username */
-		define('DB_USER', 'treesiderv_us');
+		define('DB_USER', '');
 
 		/** MySQL live database password */
-		define('DB_PASSWORD', '23JJoXXJ1zXClffBsqjgH');
+		define('DB_PASSWORD', '');
 	break;
 }
 
