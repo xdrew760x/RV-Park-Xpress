@@ -70,7 +70,7 @@ array_map(function ($file) use ($sage_error) {
 
 
 function my_acf_init() {
-    acf_update_setting('google_api_key', 'AIzaSyDxClnde54Xwdumsd0q6p1fK-R_kKYAzCY');
+    acf_update_setting('google_api_key', '');
 }
 add_action('acf/init', 'my_acf_init');
 
